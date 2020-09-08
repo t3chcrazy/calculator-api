@@ -16,6 +16,8 @@ app.use(bodyParser.json())
 
 // here
 
+const breakPoint = Math.pow(10, 7)
+
 app.get("/", (req, res) => {
     res.send("Hello World")
 })
@@ -25,7 +27,7 @@ app.post("/add", (req, res) => {
     console.log(num1, num2)
     try {
         assert(Number.isFinite(num1) && Number.isFinite(num2), "invalid data types")
-        assert(num1 < Math.pow(10, 7) && num2 < Math.pow(10, 7), "Overflow")
+        assert(num1 < breakPoint && num2 < breakPoint, "Overflow")
         res.json({
             "status": "success",
             "message": "the sum of given two number",
@@ -44,7 +46,7 @@ app.post("/sub", (req, res) => {
     const { num1, num2 } = req.body
     try {
         assert(Number.isFinite(num1) && Number.isFinite(num2), "invalid data types")
-        assert(num1 > Math.pow(10, 7) && num2 > Math.pow(10, 7), "Underflow")
+        assert(num1 > breakPoint && num2 > breakPoint, "Underflow")
         res.json({
             "status": "success",
             "message": "the difference of given two number",
@@ -63,7 +65,7 @@ app.post("/multiply", (req, res) => {
     const { num1, num2 } = req.body
     try {
         assert(Number.isFinite(num1) && Number.isFinite(num2), "invalid data types")
-        assert(num1 < Math.pow(10, 7) && num2 < Math.pow(10, 7), "Overflow")
+        assert(num1 < breakPoint && num2 < breakPoint, "Overflow")
         res.json({
             "status": "success",
             "message": "the product of given two number",
