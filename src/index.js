@@ -16,6 +16,10 @@ app.use(bodyParser.json())
 
 // here
 
+app.get("/", (req, res) => {
+    res.send("Hello World")
+})
+
 app.post("/add", (req, res) => {
     const { num1, num2 } = req.body
     console.log(num1, num2)
