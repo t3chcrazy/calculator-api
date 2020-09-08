@@ -16,7 +16,7 @@ app.use(bodyParser.json())
 
 // here
 
-const breakPoint = Math.pow(10, 7)
+const breakPoint = Math.pow(10, 6)
 
 app.get("/", (req, res) => {
     res.send("Hello World")
@@ -30,7 +30,7 @@ app.post("/add", (req, res) => {
         assert(num1 < breakPoint && num2 < breakPoint, "Overflow")
         res.json({
             "status": "success",
-            "message": "the sum of given two number",
+            "message": "the sum of given two numbers",
             "sum": num1+num2
         })
     }
@@ -49,7 +49,7 @@ app.post("/sub", (req, res) => {
         assert(num1 > breakPoint && num2 > breakPoint, "Underflow")
         res.json({
             "status": "success",
-            "message": "the difference of given two number",
+            "message": "the difference of given two numbers",
             "sum": num1-num2
         })
     }
@@ -68,7 +68,7 @@ app.post("/multiply", (req, res) => {
         assert(num1 < breakPoint && num2 < breakPoint, "Overflow")
         res.json({
             "status": "success",
-            "message": "the product of given two number",
+            "message": "the product of given two numbers",
             "sum": num1*num2
         })
     }
